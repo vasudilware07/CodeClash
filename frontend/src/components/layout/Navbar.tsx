@@ -19,7 +19,7 @@ const Navbar = () => {
         
         <div className="flex items-center gap-8">
           <Link to={isAuthenticated ? "/home" : "/"} className="text-2xl font-bold text-[#F97316] shrink-0">
-            CodeDuel
+            CodeClash
           </Link>
 
           {isAuthenticated && (
