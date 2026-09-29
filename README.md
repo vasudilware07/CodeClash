@@ -1,6 +1,6 @@
-# CodeDuels: Real Time 1v1 Competitive Programming Platform
+# CodeClash: Real Time 1v1 Competitive Programming Platform
 
-CodeDuels is a full stack, real time competitive programming platform where users compete in one on one DSA battles with live matchmaking, code execution, real time result updates, and performance tracking.
+CodeClash is a full stack, real time competitive programming platform where users compete in one on one DSA battles with live matchmaking, code execution, real time result updates, and performance tracking.
 
 The platform has served **2,000+ registered users** and evolved from a manually deployed AWS application into a **Terraform managed, ECS based, microservice oriented cloud architecture** using AWS SQS, ElastiCache Redis, RDS PostgreSQL, CloudFront, S3, Lambda, GitHub Actions, and AWS ECS Fargate.
 
@@ -78,7 +78,7 @@ The platform has served **2,000+ registered users** and evolved from a manually 
 
 ## System Evolution
 
-CodeDuels was initially built and deployed using a manual AWS Console based setup with an EC2 hosted backend.
+CodeClash was initially built and deployed using a manual AWS Console based setup with an EC2 hosted backend.
 
 After validating the platform with real users, the system was upgraded into a more production oriented architecture. The Phase 2 migration introduced:
 
@@ -159,7 +159,7 @@ This separation keeps long running, continuous third party API polling outside t
 
 ### 3. Frontend
 
-The `codeduels-frontend` is built with:
+The `CodeClash-frontend` is built with:
 
 - React
 - Vite
@@ -187,7 +187,7 @@ The frontend is built through GitHub Actions and deployed to AWS S3, with CloudF
 
 ### Step-by-Step Flows
 
-Because CodeDuels supports both native execution and Codeforces integration, the platform uses two distinct asynchronous submission pipelines.
+Because CodeClash supports both native execution and Codeforces integration, the platform uses two distinct asynchronous submission pipelines.
 
 #### 1. Normal Match Flow: Judge0 Execution
 
@@ -439,7 +439,7 @@ Across both backend services, around **15–20 core test classes** validate impo
 
 ## Security
 
-CodeDuels includes multiple layers of application and infrastructure security.
+CodeClash includes multiple layers of application and infrastructure security.
 
 ### Authentication & Authorization
 
