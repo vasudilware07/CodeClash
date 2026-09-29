@@ -1,0 +1,58 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../../core/context/ThemeContext';
+import LoginForm from '../components/LoginForm';
+
+const LoginPage = () => {
+  const navigate = useNavigate();
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      navigate('/home', { replace: true });
+    }
+  }, [navigate]);
+
+  const handleAuthenticated = (data: any) => {
+    console.log("🔥 DEBUG - RAW BACKEND RESPONSE:", data);
+
+    // Grab the token whether the backend called it 'accessToken' OR 'token'
+    const tokenToSave = data.accessToken || data.token;
+
+    if (tokenToSave) {
+      localStorage.setItem('accessToken', tokenToSave);
+      
+      if (data.refreshToken) {
+        localStorage.setItem('refreshToken', data.refreshToken);
+      }
+      
+      navigate('/home');
+    } else {
+      console.error("❌ Authentication failed. Token missing from:", data);
+    }
+  };
+
+
+  const pageBgClass = theme === 'dark' ? 'bg-gray-900' : 'bg-slate-100';
+  const cardBgClass = theme === 'dark' ? 'bg-zinc-900 border border-white/10' : 'bg-white shadow-lg';
+  const headingClass = theme === 'dark' ? 'text-white' : 'text-slate-900';
+  const textClass = theme === 'dark' ? 'text-gray-400' : 'text-slate-600';
+
+  return (
+    <div className={`min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300 ${pageBgClass}`}>
+
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <h1 className={`text-3xl font-bold ${headingClass}`}>Welcome Back!</h1>
+          <p className={`mt-2 ${textClass}`}>Sign in to continue.</p>
+        </div>
+        <div className={`p-8 rounded-xl transition-colors duration-300 w-full ${cardBgClass}`}>
+          <LoginForm onAuthenticated={handleAuthenticated} theme={theme} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;

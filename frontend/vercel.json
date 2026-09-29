@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://code-duel.ddns.net/api/:path*"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "https://code-duel.ddns.net/ws/:path*"
+    },
+    {
+      "source": "/((?!api/|ws/|assets/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
