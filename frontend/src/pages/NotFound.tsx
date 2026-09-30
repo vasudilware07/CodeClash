@@ -1,31 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import MainLayout from '../components/layout/MainLayout';
-
+import { useNavigate } from "react-router-dom";
+import MainLayout from "../components/layout/MainLayout";
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
-
   return (
     <MainLayout>
-      <div className="flex flex-col items-center justify-center text-center py-16 sm:py-24">
-        <div className="w-full max-w-lg">
-          <h1 className="text-8xl md:text-9xl font-extrabold text-[#F97316] tracking-wider">
-            404
-          </h1>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            Page Not Found
-          </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Sorry, we couldn't find the page you’re looking for. It might have
-            been moved, deleted, or you may have mistyped the URL.
-          </p>
-          <button
-            onClick={() => navigate('/login')}
-            className="mt-8 px-8 py-3 bg-[#F97316] text-white font-bold rounded-lg shadow-md hover:bg-[#EA580C] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            Go Back Home
-          </button>
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", paddingTop: 80, paddingBottom: 80 }}>
+        <p className="gradient-text" style={{ fontSize: "clamp(5rem, 15vw, 9rem)", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.05em", fontFamily: "JetBrains Mono, monospace", marginBottom: 16 }}>404</p>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 12 }}>Page Not Found</h2>
+        <p style={{ color: "var(--text-secondary)", maxWidth: 400, marginBottom: 32, fontSize: 15 }}>
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        </p>
+        <button className="btn-primary" onClick={() => navigate("/home")} style={{ padding: "12px 32px" }}>
+          Back to Home
+        </button>
       </div>
     </MainLayout>
   );
