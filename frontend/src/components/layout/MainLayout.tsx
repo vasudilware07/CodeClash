@@ -8,19 +8,27 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="min-h-screen bg-white text-gray-800 dark:bg-[#18181b] dark:text-gray-200 transition-colors duration-200">
-
-      <Toaster 
-        position="top-center"
+    <div style={{ minHeight: '100vh', color: 'var(--text-primary)' }}>
+      <Toaster
+        position="top-right"
         reverseOrder={false}
         toastOptions={{
           style: {
-            background: '#333',
-            color: '#fff',
+            background: 'var(--bg-elevated)',
+            color: 'var(--text-primary)',
+            border: '1px solid rgba(124, 58, 237, 0.25)',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontSize: '14px',
+          },
+          success: {
+            iconTheme: { primary: '#10b981', secondary: 'var(--bg-elevated)' },
+          },
+          error: {
+            iconTheme: { primary: '#ef4444', secondary: 'var(--bg-elevated)' },
           },
         }}
       />
-      
+
       <Navbar />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">

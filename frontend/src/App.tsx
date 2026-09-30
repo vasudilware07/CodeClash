@@ -24,7 +24,7 @@ const App = () => {
   }, [isAuthenticated]); // Run this effect when the auth state changes
 
   return (
-    <div className="bg-gray-50 dark:bg-zinc-950 min-h-screen">
+    <div className="bg-grid" style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       <AppRoutes />
     </div>
   );
